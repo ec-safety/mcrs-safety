@@ -7,28 +7,62 @@
 
 <style>
 :root{
-  --gold:#e5b611;
-  --gold-soft:#f3d86a;
-  --bg1:#050505;
-  --bg2:#0b1220;
-  --panel:rgba(255,255,255,.06);
-  --panel-2:rgba(255,255,255,.08);
-  --line:rgba(255,255,255,.10);
-  --text-soft:rgba(255,255,255,.72);
-  --shadow:0 10px 30px rgba(0,0,0,.28);
+  /* Colores inspirados en el logo de Montecristi */
+  --navy-950:#020f20;
+  --navy-900:#061b33;
+  --navy-850:#082440;
+  --navy-800:#0a2a4d;
+  --navy-700:#032d5d;
+
+  --gold:#f2b51d;
+  --gold-soft:#f7d36b;
+  --gold-light:#fff0a8;
+
+  --sky:#9ed0ed;
+  --sky-soft:#dceffa;
+
+  --text:#f7fbff;
+  --text-soft:rgba(220,239,250,.76);
+
+  --panel:rgba(7,39,74,.78);
+  --panel-strong:rgba(8,43,79,.92);
+  --line:rgba(158,208,237,.20);
+  --line-strong:rgba(158,208,237,.34);
+
+  --shadow:0 16px 40px rgba(0,13,29,.36);
   --radius:18px;
 }
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; margin:0; }
+*{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  height:100%;
+  margin:0;
+}
 
 body{
-  font-family: "Segoe UI", Arial, sans-serif;
-  color:#fff;
+  font-family:"Segoe UI", Arial, sans-serif;
+  color:var(--text);
   background:
-    radial-gradient(900px 420px at 15% 0%, rgba(229,182,17,.18), transparent 55%),
-    radial-gradient(700px 400px at 85% 0%, rgba(245,224,3,.10), transparent 50%),
-    linear-gradient(180deg,#050505 0%, #0a0f18 45%, #0d1522 100%);
+    radial-gradient(
+      900px 480px at 12% -5%,
+      rgba(242,181,29,.16),
+      transparent 58%
+    ),
+    radial-gradient(
+      800px 460px at 92% 0%,
+      rgba(158,208,237,.16),
+      transparent 56%
+    ),
+    linear-gradient(
+      180deg,
+      var(--navy-950) 0%,
+      var(--navy-900) 45%,
+      var(--navy-850) 100%
+    );
   overflow:hidden;
 }
 
@@ -43,40 +77,74 @@ body{
 
 /* ===== TOP ===== */
 .top{
-  min-height:76px;
-  padding:14px 18px;
+  position:relative;
+  min-height:92px;
+  padding:12px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   border:1px solid var(--line);
   border-radius:20px;
-  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-  backdrop-filter: blur(10px);
-  box-shadow:var(--shadow);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10,50,91,.94),
+      rgba(4,28,54,.88)
+    );
+  backdrop-filter:blur(12px);
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  overflow:hidden;
+}
+
+.top::after{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:0;
+  height:2px;
+  border-radius:10px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(242,181,29,.70),
+    rgba(158,208,237,.55),
+    transparent
+  );
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
   min-width:0;
 }
 
 .logo{
-  width:64px;
-  height:64px;
-  border-radius:16px;
-  background:rgba(255,255,255,.06);
+  width:76px;
+  height:76px;
+  border-radius:18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.98),
+      rgba(220,239,250,.92)
+    );
   display:flex;
   align-items:center;
   justify-content:center;
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(158,208,237,.55);
+  box-shadow:
+    0 0 0 4px rgba(158,208,237,.08),
+    0 10px 24px rgba(0,0,0,.24);
   flex-shrink:0;
 }
 
 .logo img{
-  width:74%;
-  height:74%;
+  width:92%;
+  height:92%;
   object-fit:contain;
 }
 
@@ -85,25 +153,27 @@ body{
 }
 
 .brand-kicker{
+  margin-bottom:4px;
   font-size:11px;
-  letter-spacing:1.6px;
-  font-weight:800;
+  letter-spacing:1.8px;
+  font-weight:900;
   color:var(--gold-soft);
   text-transform:uppercase;
-  margin-bottom:4px;
 }
 
 .brand-title{
+  margin:0;
   font-size:24px;
   font-weight:900;
   line-height:1.05;
-  margin:0;
+  color:var(--text);
+  letter-spacing:.3px;
 }
 
 .brand-subtitle{
   margin-top:6px;
   font-size:12px;
-  color:var(--text-soft);
+  color:var(--sky-soft);
   font-weight:600;
 }
 
@@ -122,9 +192,16 @@ body{
   padding:14px;
   border:1px solid var(--line);
   border-radius:20px;
-  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-  backdrop-filter: blur(10px);
-  box-shadow:var(--shadow);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,43,79,.92),
+      rgba(4,28,54,.82)
+    );
+  backdrop-filter:blur(12px);
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0 rgba(255,255,255,.04);
   display:flex;
   flex-direction:column;
   gap:10px;
@@ -132,12 +209,12 @@ body{
 }
 
 .sidebar-title{
+  margin:2px 2px 8px;
   font-size:12px;
   font-weight:900;
   letter-spacing:1.2px;
   text-transform:uppercase;
   color:var(--gold-soft);
-  margin:2px 2px 8px;
 }
 
 .btn{
@@ -145,16 +222,21 @@ body{
   width:100%;
   padding:13px 14px;
   border-radius:16px;
-  border:1px solid rgba(255,255,255,.08);
-  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-  color:#fff;
+  border:1px solid rgba(158,208,237,.12);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(158,208,237,.08),
+      rgba(255,255,255,.025)
+    );
+  color:var(--text);
   cursor:pointer;
   display:flex;
   align-items:center;
   gap:12px;
   text-align:left;
   transition:all .22s ease;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
 }
 
 .btn::before{
@@ -171,20 +253,36 @@ body{
 
 .btn:hover{
   transform:translateY(-1px);
-  border-color:rgba(229,182,17,.28);
-  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  border-color:rgba(158,208,237,.34);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(158,208,237,.14),
+      rgba(255,255,255,.04)
+    );
 }
 
 .btn.active{
-  border-color:rgba(229,182,17,.45);
-  background:linear-gradient(180deg, rgba(229,182,17,.16), rgba(255,255,255,.05));
+  border-color:rgba(242,181,29,.52);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(242,181,29,.18),
+      rgba(158,208,237,.08)
+    );
   box-shadow:
-    0 0 0 1px rgba(229,182,17,.12),
-    0 8px 20px rgba(0,0,0,.22);
+    0 0 0 1px rgba(242,181,29,.10),
+    0 10px 22px rgba(0,13,29,.30);
 }
 
 .btn.active::before{
-  background:linear-gradient(180deg, var(--gold), #fff1a6);
+  background:
+    linear-gradient(
+      180deg,
+      var(--gold),
+      var(--gold-light)
+    );
+  box-shadow:0 0 10px rgba(242,181,29,.52);
 }
 
 .btn-icon{
@@ -195,9 +293,14 @@ body{
   align-items:center;
   justify-content:center;
   font-size:18px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.08);
+  background:rgba(158,208,237,.10);
+  border:1px solid rgba(158,208,237,.16);
   flex-shrink:0;
+}
+
+.btn.active .btn-icon{
+  background:rgba(242,181,29,.14);
+  border-color:rgba(242,181,29,.28);
 }
 
 .btn-title{
@@ -211,9 +314,16 @@ body{
   min-height:0;
   border:1px solid var(--line);
   border-radius:20px;
-  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-  backdrop-filter: blur(10px);
-  box-shadow:var(--shadow);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,43,79,.92),
+      rgba(4,28,54,.82)
+    );
+  backdrop-filter:blur(12px);
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0 rgba(255,255,255,.04);
   padding:12px;
   display:flex;
   flex-direction:column;
@@ -231,7 +341,7 @@ body{
 .viewer-title{
   font-size:13px;
   font-weight:800;
-  color:var(--text-soft);
+  color:var(--sky-soft);
   letter-spacing:.4px;
 }
 
@@ -240,7 +350,9 @@ body{
   height:10px;
   border-radius:50%;
   background:var(--gold);
-  box-shadow:0 0 12px rgba(229,182,17,.8);
+  box-shadow:
+    0 0 0 4px rgba(242,181,29,.08),
+    0 0 14px rgba(242,181,29,.75);
 }
 
 .viewer{
@@ -250,7 +362,8 @@ body{
   overflow:hidden;
   border-radius:16px;
   background:#ffffff;
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(158,208,237,.24);
+  box-shadow:0 8px 24px rgba(0,13,29,.26);
 }
 
 iframe{
@@ -268,37 +381,57 @@ iframe{
   padding:0 16px;
   border:1px solid var(--line);
   border-radius:18px;
-  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8,43,79,.88),
+      rgba(4,28,54,.80)
+    );
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:14px;
-  box-shadow:var(--shadow);
+  box-shadow:
+    var(--shadow),
+    inset 0 1px 0 rgba(255,255,255,.04);
 }
 
 .footer img{
   height:24px;
-  opacity:.92;
+  opacity:.94;
 }
 
 .footer-text{
   font-size:11px;
-  color:rgba(255,255,255,.70);
+  color:var(--text-soft);
   font-weight:600;
 }
 
 /* ===== SCROLL ===== */
 .sidebar::-webkit-scrollbar{
   width:8px;
+  height:8px;
 }
-.sidebar::-webkit-scrollbar-thumb{
-  background:rgba(255,255,255,.12);
+
+.sidebar::-webkit-scrollbar-track{
+  background:rgba(255,255,255,.03);
   border-radius:10px;
 }
 
+.sidebar::-webkit-scrollbar-thumb{
+  background:rgba(158,208,237,.24);
+  border-radius:10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover{
+  background:rgba(242,181,29,.36);
+}
+
 /* ===== RESPONSIVE ===== */
-@media (max-width: 980px){
-  body{ overflow:auto; }
+@media (max-width:980px){
+  body{
+    overflow:auto;
+  }
 
   .app{
     height:auto;
@@ -333,9 +466,51 @@ iframe{
     font-size:11px;
   }
 }
+
+@media (max-width:600px){
+  .app{
+    padding:8px;
+    gap:8px;
+  }
+
+  .top{
+    min-height:78px;
+    padding:10px 12px;
+    border-radius:16px;
+  }
+
+  .logo{
+    width:58px;
+    height:58px;
+    border-radius:14px;
+  }
+
+  .brand{
+    gap:10px;
+  }
+
+  .brand-kicker{
+    font-size:9px;
+    letter-spacing:1.2px;
+  }
+
+  .brand-title{
+    font-size:17px;
+  }
+
+  .brand-subtitle{
+    font-size:10px;
+  }
+
+  .sidebar,
+  .viewer-wrap,
+  .footer{
+    border-radius:16px;
+  }
+}
 </style>
 
-<link rel="icon" href="https://sur-pe2026.github.io/gerenciasurchico/Imagenes/iconos4.png" type="image/png">
+<link rel="icon" href="https://sur-pe2026.github.io/gerenciasurchico/Imagenes/iconos5.png" type="image/png">
 </head>
 
 <body>
@@ -345,7 +520,7 @@ iframe{
   <div class="top">
     <div class="brand">
       <div class="logo">
-        <img src="Imagenes/Logo4.png" alt="Logo">
+        <img src="Imagenes/Logo5.png" alt="Logo">
       </div>
 
       <div class="brand-text">
